@@ -14,8 +14,8 @@ using namespace std;
 
 #define NUM_THREADS 20
 
-const H5std_string  FILE_NAME( "SDS.h5" );
-const H5std_string  DATASET_NAME( "IntArray" );
+const H5std_string  FILE_NAME( "data.h5" );
+const H5std_string  DATASET_NAME( "DoubleArray" );
 const int   NX = 1000;                    // dataset dimensions
 const int   NY = 10000;
 const int   RANK = 2;
