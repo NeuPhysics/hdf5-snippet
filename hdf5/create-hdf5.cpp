@@ -19,7 +19,7 @@ const H5std_string  DATASET_NAME( "IntArray" );
 const int   NX = 1000;                    // dataset dimensions
 const int   NY = 10000;
 const int   RANK = 2;
-    
+hsize_t chunk_dims[2] = { 20, 20 }; // chunk dimensions
 
 void record_array( double (*st_array)[NY], const int shape[2], ofstream& dumpObj) {
       
@@ -58,6 +58,13 @@ int main ()
 
       DataType  datatype( H5::PredType::NATIVE_FLOAT );
 
+    // Modify dataset creation property to enable chunking
+    //DSetCreatPropList  *plist = new  DSetCreatPropList;
+    //plist->setChunk(2, chunk_dims);
+
+    // Set ZLIB (DEFLATE) Compression using level 6.
+    // To use SZIP compression comment out this line.
+    // plist->setDeflate(6);
 
       double h5time0 = clock();
       DataSet dataset = file.createDataSet( DATASET_NAME, datatype, dataspace );
@@ -65,6 +72,7 @@ int main ()
       double h5time1 = clock();
 
 
+      // delete plist;
       // cout the time required to write to file
     cout << "HDF5 time: " << (h5time1 - h5time0)/CLOCKS_PER_SEC << " seconds" << std::endl;
 
