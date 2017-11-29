@@ -12,3 +12,9 @@ HDF5 time: 0.04 seconds
 CSV time: 6.88 seconds
 ```
 
+The files are
+
+```
+59931898 Nov 29 15:24 data.csv
+40002144 Nov 29 15:24 data.h5
+```
